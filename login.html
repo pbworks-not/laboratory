@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu PBworks - Faça login</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --link-color: #0066cc;
+            --border-color: #cccccc;
+            --yellow-bg: #fff9e6;
+            --yellow-border: #ffe0b3;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        /* Banner de Cibersegurança */
+        .security-banner {
+            background-color: #ffeeb3;
+            border-bottom: 2px solid #ffcc00;
+            color: #856404;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Container Principal centralizado */
+        .wrapper {
+            max-width: 950px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Topo com o Logotipo simulado */
+        .header-logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 10px;
+        }
+
+        .header-logo .title-main {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        .header-logo .brand-sub {
+            font-size: 16px;
+            font-weight: bold;
+            color: #999999;
+            letter-spacing: 0.5px;
+        }
+
+        /* Estrutura de duas colunas do PBworks */
+        .main-box {
+            display: flex;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            background-color: #ffffff;
+            min-height: 320px;
+        }
+
+        /* Coluna da Esquerda: Formulário de Login */
+        .login-section {
+            flex: 3;
+            padding: 30px 40px;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        .login-section h2 {
+            color: #cc3300;
+            font-size: 22px;
+            font-weight: normal;
+            margin: 0 0 5px 0;
+        }
+
+        .login-section .subtitle {
+            color: #666666;
+            margin-bottom: 25px;
+            font-size: 12px;
+        }
+
+        .login-section a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        .login-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tabela de alinhamento dos campos de entrada */
+        .form-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-table td {
+            padding: 8px 0;
+            vertical-align: middle;
+        }
+
+        .form-table .label-cell {
+            width: 120px;
+            text-align: right;
+            padding-right: 15px;
+            font-weight: bold;
+            color: #444444;
+        }
+
+        .form-table input[type="text"], 
+        .form-table input[type="password"] {
+            width: 280px;
+            padding: 5px;
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        .checkbox-row {
+            padding-left: 120px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #444444;
+        }
+
+        .action-row {
+            padding-left: 120px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            background-color: #f2f2f2;
+            color: #333333;
+            border: 1px solid #b5b5b5;
+            border-bottom: 2px solid #999999;
+            padding: 6px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #e5e5e5;
+        }
+
+        .help-text {
+            margin-top: 40px;
+            border-top: 1px solid #eeeeee;
+            padding-top: 15px;
+            color: #666666;
+            font-size: 12px;
+        }
+
+        /* Coluna da Direita: Caixa Amarela */
+        .sidebar-section {
+            flex: 1.5;
+            background-color: #fffdf6;
+            padding: 30px 25px;
+        }
+
+        .yellow-box {
+            background-color: #fff7d9;
+            border: 1px solid #f2e0a0;
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        .yellow-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .yellow-box p {
+            margin: 0 0 15px 0;
+            font-size: 11px;
+            color: #444444;
+            line-height: 1.4;
+        }
+
+        .yellow-box input[type="text"] {
+            width: 100%;
+            padding: 4px;
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .btn-yellow {
+            background-color: #f2f2f2;
+            border: 1px solid #b5b5b5;
+            padding: 4px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .sidebar-links {
+            margin-top: 20px;
+            padding-left: 15px;
+            font-size: 11px;
+        }
+
+        .sidebar-links a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #999999;
+            line-height: 1.6;
+        }
+
+        footer a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AVISO COMPATÍVEL COM O LABORATÓRIO DE SEGURANÇA -->
+    <div class="security-banner">
+        ⚠️ AMBIENTE DE AUDITORIA SIMULADO: Esta página é uma réplica exata criada localmente para fins didáticos de cibersegurança.
+    </div>
+
+    <div class="wrapper">
+        
+        <!-- LOGO DA PLATAFORMA -->
+        <div class="header-logo">
+            <div class="title-main">Meu PBworks</div>
+            <div class="brand-sub">PBWORKS</div>
+        </div>
+
+        <!-- QUADRO PRINCIPAL DE DOIS LADOS -->
+        <div class="main-box">
+            
+            <!-- LADO ESQUERDO: LOGIN PRINCIPAL -->
+            <div class="login-section">
+                <h2>Faça login</h2>
+                <div class="subtitle">
+                    Insira seu endereço de e-mail e senha para fazer login. Não tem uma conta? <a href="#">Cadastre-se !</a>
+                </div>
+
+                <!-- FORMULÁRIO ENVIANDO PARA O SEU PRÓPRIO SCRIPT PYTHON -->
+                <form action="#" method="POST">
+                    <table class="form-table">
+                        <tr>
+                            <td class="label-cell">Endereço de e-mail</td>
+                            <td><input type="text" name="email" required autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td class="label-cell">Senha</td>
+                            <td><input type="password" name="password" required></td>
+                        </tr>
+                    </table>
+
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="remember" name="remember" checked>
+                        <label for="remember">Lembre de mim</label>
+                    </div>
+
+                    <div class="action-row">
+                        <button type="submit" class="btn-submit">Conecte-se</button>
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+                </form>
+
+                <div class="help-text">
+                    <strong>Precisa de ajuda?</strong> Obtenha <a href="#">suporte</a>.
+                </div>
+            </div>
+
+            <!-- LADO DIREITO: CAIXA AMARELA DE ESPAÇO DE TRABALHO -->
+            <div class="sidebar-section">
+                <div class="yellow-box">
+                    <h3>Acesse um espaço de trabalho.</h3>
+                    <p>Digite o nome do seu espaço de trabalho</p>
+                    <input type="text" placeholder="">
+                    <button class="btn-yellow">Enviar</button>
+                </div>
+                <div class="sidebar-links">
+                    <a href="#">Esqueceu o nome do seu espaço de trabalho?</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RODAPÉ ORIGINAL SIMULADO -->
+        <footer>
+            <a href="#">PBworks</a> · <a href="#">Obtenha ajuda</a><br>
+            © 2026 PBworks
+        </footer>
+
+    </div>
+
+</body>
+</html>
